@@ -7,6 +7,8 @@ var Route = ReactRouter.Route;
 var Navigation = ReactRouter.Navigation;
 var createBrowserHistory = require('history/lib/createBrowserHistory');
 
+var h = require('./helpers.js');
+
 /*
   App
 */
@@ -18,7 +20,6 @@ var App = React.createClass({
     <div className="catch-of-the-day">
       <div className="menu">
         <Header tagline="Fresh Seafood Market" />
-
         </div>
         <Order />
         <Inventory />
@@ -84,7 +85,8 @@ var StorePicker = React.createClass({
         <form className="store-selector">
         {/* Comment goes in here or Comment out code */}
           <h2>Please Enter A Store {name}</h2>
-          <input type="text" ref="storeId" required />
+          <input type="text" ref="storeId" defaultValue={h.getFunName()}
+          required />
           <input type="Submit" />
         </form>
       )
