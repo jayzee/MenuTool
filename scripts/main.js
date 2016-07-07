@@ -33,7 +33,9 @@ var App = React.createClass({
     this.setState({
       fishes : require('./sample-fishes')
     });
-
+  },
+  renderFish : function(key) {
+      return <li>Welcome {key}</li>
   },
   render : function(){
 
@@ -41,6 +43,9 @@ var App = React.createClass({
     <div className="catch-of-the-day">
       <div className="menu">
         <Header tagline="Fresh Seafood Market" />
+          <ul className="list-of-fishes">
+            {Object.keys(this.state.fishes).map(this.renderFish)}
+          </ul>
         </div>
 
         <Order />
